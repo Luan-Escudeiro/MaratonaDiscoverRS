@@ -3,6 +3,9 @@
     --lgold:#998542;
     --dblue:#1D252D;
 }
+html{
+    font: 93.75%;
+}
 *{
     margin:0;
     padding: 0;
@@ -17,12 +20,56 @@ body{
     width: min(90vw,800px);
     margin: auto;
 }
+.sr-only{
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;  margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;    
+}
 .card{
     background-color: #97999B;
     margin-top: 1rem;
     padding: 1rem 2rem 1rem;
     border-radius: 25px;
     color: var(--dblue);
+}
+/*----------Links and buttons----------*/
+a{
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    color: #939597;
+}
+button{
+    width: 100%;
+    height: 50px;
+    border:none;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    background-color: #53565A;
+    border: solid 2px #363432;
+}
+button:hover,.button.button.cancel:hover{
+    background-color: #8A8B99;
+}
+.button.new{
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+.button.cancel{
+    color:black;
+    border: solid 2px #363432;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+
 }
 /*----------Header-----------*/
 
@@ -47,6 +94,10 @@ header h1{
 
 .card h3{
     font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .card p{
     font-weight: 100;
@@ -67,6 +118,9 @@ td.date{
 
 #transaction{
     margin-top: 1rem;
+    overflow-x: auto;
+    display: block;
+    width: 100%;
 }
 #data-table{
     width: 100%;
@@ -89,8 +143,76 @@ table td{
 table thead th:first-child,table tbody td:first-child{
     border-radius: 0.5rem 0 0 0.5rem;
 }
+table thead th:last-child,table tbody td:last-child{
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+.figure{
+    margin-left: 0.5rem;
+}
+/*---------Modal--------*/
+.modal-overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0,0, 0.7);
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+}
+.modal-overlay.active{
+    opacity: 1;
+    visibility: visible;
+}
+.modal{
+    background-color: #53565A;
+    position: relative;
+    padding: 2.5rem;
+}
+/*-------Form-------*/
+#form{
+    max-width: 500px;
+}
+input{
+    border: none;
+    border-radius: 0.2rem;
+    padding: 0.8rem;
+    width: 100%;
+}
+.input-group{
+    margin-top: 1rem;
+}
+.input-group small{
+    margin-top: 0.5rem;
+    opacity: 0.8;
+    color: white;
+}
+.input-group.actions{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input-group.actions .button,.input-group.actions button{
+    width: 48%;
+}
 /*----------Footer-----*/
 footer{
     text-align: center;
-    background-color: #53565A;
+}
+
+/*-----Responsive-----*/
+@media (min-width:800px){
+    html{
+        font-size: 87.5%;
+    }
+
+    #balance{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 2em;
+    }
+
 }
