@@ -109,7 +109,10 @@ td.description{
     color: var(--dblue);
 }
 td.expense{
-    color: var(--dblue);
+    color: red;
+}
+td.income{
+    color: green
 }
 
 td.date{
